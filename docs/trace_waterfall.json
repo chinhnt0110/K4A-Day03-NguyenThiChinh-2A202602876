@@ -1,7 +1,44 @@
 [
   {
     "step": 1,
-    "query": "Tôi KH001 muốn đặt lịch hẹn với luật sư của mình vào 15h ngày 15/9/2026",
+    "query": "Chào bạn, điều kiện để được đơn phương ly hôn theo quy định của Luật Hôn nhân và Gia đình hiện nay là gì?",
+    "action_type": "FINAL_ANSWER",
+    "thought": "OpenAI phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Theo quy định của Luật Hôn nhân và Gia đình Việt Nam, điều kiện để được đơn phương ly hôn bao gồm:\n\n1. **Mất khả năng tiếp tục sống chung**: Có sự bất đồng nghiêm trọng giữa hai vợ chồng dẫn đến không thể tiếp tục chung sống.\n\n2. **Thời gian chung sống**: Thời gian kết hôn phải đúng theo quy định của luật, không có yêu cầu cụ thể nhưng thường là khi tình trạng hôn nhân đã rạn nứt trong một thời gian dài.\n\n3. **Nguyên nhân ly hôn**: Cần phải chỉ rõ nguyên nhân dẫn đến ly hôn, có thể là do vi phạm nghĩa vụ trong hôn nhân (ví dụ: bạo lực gia đình, ngoại tình, hoặc lối sống không lành mạnh).\n\n4. **Có yêu cầu chính thức**: Phải nộp đơn xin ly hôn và thực hiện các thủ tục theo quy định của pháp luật.\n\nNgoài ra, việc nuôi con, phân chia tài sản cũng cần được giải quyết rõ ràng trong quá trình ly hôn. Bạn nên tham khảo thêm thông tin hoặc tư vấn cụ thể từ luật sư nếu cần giúp đỡ trong việc này.",
+    "latency_ms": 5890.45
+  },
+  {
+    "step": 1,
+    "query": "Tôi muốn hỏi về bảng giá dịch vụ tư vấn ly hôn của văn phòng.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "get_fees",
+    "arguments": {
+      "service_type": "ly hôn"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "service_type": "ly hôn",
+      "data": {
+        "lead_lawyer": "Quách Văn Thơm",
+        "price": 10000000
+      },
+      "price": 10000000,
+      "lawyer": "Quách Văn Thơm",
+      "message": "Phí dịch vụ ly hôn là 10,000,000 VNĐ. Luật sư phụ trách: Quách Văn Thơm."
+    },
+    "latency_ms": 897.84
+  },
+  {
+    "step": 2,
+    "query": "Tôi muốn hỏi về bảng giá dịch vụ tư vấn ly hôn của văn phòng.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "OpenAI phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Phí dịch vụ tư vấn ly hôn của văn phòng là 10,000,000 VNĐ. Luật sư phụ trách cho dịch vụ này là Quách Văn Thơm. Nếu bạn cần thêm thông tin hoặc muốn đặt lịch hẹn, hãy cho tôi biết nhé!",
+    "latency_ms": 1431.7
+  },
+  {
+    "step": 1,
+    "query": "Tôi là khách hàng KH001, tôi muốn đặt lịch hẹn tư vấn với luật sư Quách Văn Thơm vào lúc 14:00 ngày 15/09/2026.",
     "action_type": "TOOL_EXECUTION",
     "tool_name": "find_lawyer",
     "arguments": {
@@ -14,34 +51,101 @@
       "lawyer": "Quách Văn Thơm",
       "message": "Tìm thấy luật sư phụ trách cho khách hàng KH001 (Nguyễn Thị Chinh): Quách Văn Thơm"
     },
-    "latency_ms": 647.49
+    "latency_ms": 1380.24
   },
   {
     "step": 2,
-    "query": "Tôi KH001 muốn đặt lịch hẹn với luật sư của mình vào 15h ngày 15/9/2026",
+    "query": "Tôi là khách hàng KH001, tôi muốn đặt lịch hẹn tư vấn với luật sư Quách Văn Thơm vào lúc 14:00 ngày 15/09/2026.",
     "action_type": "TOOL_EXECUTION",
     "tool_name": "schedule_appointment",
     "arguments": {
       "customer_id": "KH001",
-      "datetime_str": "2026-09-15T15:00:00",
+      "datetime_str": "2026-09-15T14:00:00",
       "lawyer_name": "Quách Văn Thơm"
     },
     "observation": {
       "status": "SUCCESS",
       "booking_id": "BK-KH001-99",
       "customer_id": "KH001",
-      "datetime": "2026-09-15T15:00:00",
+      "datetime": "2026-09-15T14:00:00",
       "lawyer": "Quách Văn Thơm",
-      "message": "Đặt lịch thành công cho khách hàng KH001 với luật sư Quách Văn Thơm vào lúc 2026-09-15T15:00:00."
+      "message": "Đặt lịch thành công cho khách hàng KH001 với luật sư Quách Văn Thơm vào lúc 2026-09-15T14:00:00."
     },
-    "latency_ms": 1572.03
+    "latency_ms": 2368.91
   },
   {
     "step": 3,
-    "query": "Tôi KH001 muốn đặt lịch hẹn với luật sư của mình vào 15h ngày 15/9/2026",
+    "query": "Tôi là khách hàng KH001, tôi muốn đặt lịch hẹn tư vấn với luật sư Quách Văn Thơm vào lúc 14:00 ngày 15/09/2026.",
     "action_type": "FINAL_ANSWER",
     "thought": "OpenAI phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
-    "output": "Bạn đã đặt lịch hẹn thành công với luật sư Quách Văn Thơm vào lúc 15h ngày 15/9/2026. Mã đặt lịch của bạn là BK-KH001-99. Nếu bạn cần thêm thông tin gì khác, hãy cho tôi biết!",
-    "latency_ms": 993.21
+    "output": "Bạn đã đặt lịch hẹn thành công với luật sư Quách Văn Thơm vào lúc 14:00 ngày 15/09/2026. Mã đặt lịch của bạn là BK-KH001-99. \n\nNếu bạn cần thêm thông tin gì khác, hãy cho tôi biết nhé!",
+    "latency_ms": 1335.99
+  },
+  {
+    "step": 1,
+    "query": "Tôi là khách hàng KH001, hãy kiểm tra xem luật sư phụ trách của tôi là ai, sau đó đặt cho tôi một lịch hẹn tư vấn với luật sư đó vào sáng ngày 20/09/2026 nhé.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "find_lawyer",
+    "arguments": {
+      "customer_id": "KH001"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "customer_id": "KH001",
+      "customer_name": "Nguyễn Thị Chinh",
+      "lawyer": "Quách Văn Thơm",
+      "message": "Tìm thấy luật sư phụ trách cho khách hàng KH001 (Nguyễn Thị Chinh): Quách Văn Thơm"
+    },
+    "latency_ms": 872.55
+  },
+  {
+    "step": 2,
+    "query": "Tôi là khách hàng KH001, hãy kiểm tra xem luật sư phụ trách của tôi là ai, sau đó đặt cho tôi một lịch hẹn tư vấn với luật sư đó vào sáng ngày 20/09/2026 nhé.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "schedule_appointment",
+    "arguments": {
+      "customer_id": "KH001",
+      "datetime_str": "2026-09-20T09:00:00",
+      "lawyer_name": "Quách Văn Thơm"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "booking_id": "BK-KH001-99",
+      "customer_id": "KH001",
+      "datetime": "2026-09-20T09:00:00",
+      "lawyer": "Quách Văn Thơm",
+      "message": "Đặt lịch thành công cho khách hàng KH001 với luật sư Quách Văn Thơm vào lúc 2026-09-20T09:00:00."
+    },
+    "latency_ms": 1192.53
+  },
+  {
+    "step": 3,
+    "query": "Tôi là khách hàng KH001, hãy kiểm tra xem luật sư phụ trách của tôi là ai, sau đó đặt cho tôi một lịch hẹn tư vấn với luật sư đó vào sáng ngày 20/09/2026 nhé.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "OpenAI phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Tôi đã tìm thấy luật sư phụ trách của bạn là **Quách Văn Thơm**. \n\nLịch hẹn tư vấn của bạn với luật sư Quách Văn Thơm đã được đặt thành công vào sáng ngày **20/09/2026** lúc **09:00**. ",
+    "latency_ms": 1522.54
+  },
+  {
+    "step": 1,
+    "query": "Tôi là khách hàng KH9999, hãy kiểm tra xem luật sư phụ trách của tôi là ai.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "find_lawyer",
+    "arguments": {
+      "customer_id": "KH9999"
+    },
+    "observation": {
+      "status": "NOT_FOUND",
+      "message": "Không tìm thấy thông tin khách hàng với mã KH9999 trong hệ thống."
+    },
+    "latency_ms": 913.56
+  },
+  {
+    "step": 2,
+    "query": "Tôi là khách hàng KH9999, hãy kiểm tra xem luật sư phụ trách của tôi là ai.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "OpenAI phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Xin lỗi, nhưng tôi không thể tìm thấy thông tin khách hàng với mã KH9999 trong hệ thống. Bạn có thể kiểm tra lại mã khách hàng hoặc cung cấp thông tin khác để tôi có thể hỗ trợ bạn tốt hơn.",
+    "latency_ms": 1095.21
   }
 ]
