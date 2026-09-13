@@ -10,11 +10,11 @@
 
 | Tiêu chí Đánh giá | Mức độ (1 - 5) | Giải trình chi tiết lý do chọn điểm |
 | :--- | :---: | :--- |
-| **1. Multi-step Reasoning** | 5 / 5 | Khi khách hàng không đề cập luật sư cụ thể, cần biết luật sư của khách hàng là ai, có trống lịch không rồi mới tiến hành đặt lịch |  
-| **2. Tool Interaction** | 5 / 5 | Hệ thống cần kết nối với Cơ sở dữ liệu để trích xuất báo giá, danh sách luật sư, danh sách các dịch vụ pháp lý, lịch hẹn, lịch làm việc của từng luật sư |
-| **3. Dynamic Decision** | / 5 | Dựa vào thông tin khách hàng cung cấp để gợi ý luật sư phụ trách phù hợp |
+| **1. Multi-step Reasoning** | 5 / 5 | Khi khách hàng nói luật sư "của mình", cần biết luật sư của khách hàng là ai, rồi mới tiến hành đặt lịch |  
+| **2. Tool Interaction** | 5 / 5 | Hệ thống cần kết nối với Cơ sở dữ liệu để trích xuất báo giá, danh sách luật sư, khách hàng, các dịch vụ pháp lý |
+| **3. Dynamic Decision** | 5 / 5 | Dựa vào thông tin khách hàng cung cấp để gợi ý luật sư phụ trách phù hợp |
 | **4. Long Horizon Goal** | 5 / 5 | Hệ thống cần duy trì mục tiêu hoàn tất một phiên tư vấn hoặc đặt lịch hẹn thành công |
-| **TỔNG ĐIỂM AGENTIC FIT** | **/ 20** | *Nếu tổng điểm > 12/20: Bài toán rất phù hợp triển khai Agentic System.* |
+| **TỔNG ĐIỂM AGENTIC FIT** | ** 20/ 20** | *Nếu tổng điểm > 12/20: Bài toán rất phù hợp triển khai Agentic System.* |
 
 ---
 
@@ -28,20 +28,20 @@ Dán 1 đoạn trích xuất log tiêu biểu từ file `docs/trace_waterfall.js
 [
   {
     "step": 1,
+    "query": "Tôi KH001 muốn đặt lịch hẹn với luật sư của mình vào 15h ngày 15/9/2026",
     "action_type": "TOOL_EXECUTION",
-    "tool_name": "academic_query",
+    "tool_name": "find_lawyer",
     "arguments": {
-      "student_id": "SV2026001"
+      "customer_id": "KH001"
     },
     "observation": {
       "status": "SUCCESS",
-      "student_id": "SV2026001",
-      "data": {
-        "full_name": "Nguyễn Văn An",
-        "gpa": 3.85
-      }
+      "customer_id": "KH001",
+      "customer_name": "Nguyễn Thị Chinh",
+      "lawyer": "Quách Văn Thơm",
+      "message": "Tìm thấy luật sư phụ trách cho khách hàng KH001 (Nguyễn Thị Chinh): Quách Văn Thơm"
     },
-    "latency_ms": 120.5
+    "latency_ms": 647.49
   }
 ]
 ```
