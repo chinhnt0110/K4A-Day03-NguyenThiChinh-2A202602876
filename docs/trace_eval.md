@@ -1,8 +1,8 @@
 # 📊 BÁO CÁO THU HOẠCH NGHIỆM THU BÀI LAB 3 (BƯỚC 3 — SUBMISSION ARTIFACT)
 
-> **Họ và Tên Học viên:** [Điền Họ và Tên]  
-> **Mã Sinh Viên / Mã Học viên:** [Điền MSSV]  
-> **Chủ đề Lựa chọn:** [Điền tên chủ đề đã chọn từ docs/DANH_SACH_DE_TAI.md hoặc Đề tài Mở]  
+> **Họ và Tên Học viên:** Nguyễn Thị Chinh
+> **Mã Sinh Viên / Mã Học viên:** 2A202602876
+> **Chủ đề Lựa chọn:** *Trợ lý Tư vấn của Văn phòng luật:* Tra cứu luật, báo giá và lên lịch hẹn luật sư.
 
 ---
 
@@ -10,10 +10,10 @@
 
 | Tiêu chí Đánh giá | Mức độ (1 - 5) | Giải trình chi tiết lý do chọn điểm |
 | :--- | :---: | :--- |
-| **1. Multi-step Reasoning** | / 5 | Bài toán có yêu cầu chia nhỏ nhiều bước suy luận nối tiếp nhau không? |
-| **2. Tool Interaction** | / 5 | Hệ thống có cần kết nối với MCP Server / Cơ sở dữ liệu bên ngoài không? |
-| **3. Dynamic Decision** | / 5 | Bước tiếp theo có phụ thuộc vào kết quả quan sát bước trước không? |
-| **4. Long Horizon Goal** | / 5 | Hệ thống có phải giữ mục tiêu xuyên suốt qua nhiều lượt xử lý không? |
+| **1. Multi-step Reasoning** | 5 / 5 | Khi khách hàng không đề cập luật sư cụ thể, cần biết luật sư của khách hàng là ai, có trống lịch không rồi mới tiến hành đặt lịch |  
+| **2. Tool Interaction** | 5 / 5 | Hệ thống cần kết nối với Cơ sở dữ liệu để trích xuất báo giá, danh sách luật sư, danh sách các dịch vụ pháp lý, lịch hẹn, lịch làm việc của từng luật sư |
+| **3. Dynamic Decision** | / 5 | Dựa vào thông tin khách hàng cung cấp để gợi ý luật sư phụ trách phù hợp |
+| **4. Long Horizon Goal** | 5 / 5 | Hệ thống cần duy trì mục tiêu hoàn tất một phiên tư vấn hoặc đặt lịch hẹn thành công |
 | **TỔNG ĐIỂM AGENTIC FIT** | **/ 20** | *Nếu tổng điểm > 12/20: Bài toán rất phù hợp triển khai Agentic System.* |
 
 ---

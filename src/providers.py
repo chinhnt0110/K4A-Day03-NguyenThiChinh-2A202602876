@@ -38,19 +38,19 @@ class MockOfflineProvider(BaseLLMProvider):
         prompt_lower = prompt.lower()
         
         # Mô phỏng nhận diện intent gọi Tool
-        if "sv2026001" in prompt_lower and "đặt lịch" in prompt_lower:
+        if "kh001" in prompt_lower and "đặt lịch" in prompt_lower:
             return {
                 "type": "tool_call",
                 "tool_name": "schedule_appointment",
-                "arguments": {"student_id": "SV2026001", "datetime_str": "14:00 15/09/2026", "advisor_name": "PGS.TS Nguyễn Văn A"},
-                "thought": "Người dùng yêu cầu đặt lịch hẹn tư vấn cho sinh viên SV2026001. Tôi sẽ gọi tool schedule_appointment."
+                "arguments": {"customer_id": "KH001", "datetime_str": "14:00 15/09/2026", "lawyer_name": "Quách Văn Thơm"},
+                "thought": "Người dùng yêu cầu đặt lịch hẹn tư vấn cho KH001. Tôi sẽ gọi tool schedule_appointment."
             }
-        elif "sv2026001" in prompt_lower or "tra cứu" in prompt_lower:
+        elif "kh001" in prompt_lower or "báo giá" in prompt_lower:
             return {
                 "type": "tool_call",
-                "tool_name": "academic_query",
-                "arguments": {"student_id": "SV2026001"},
-                "thought": "Người dùng muốn tra cứu thông tin học vụ của sinh viên SV2026001. Tôi sẽ gọi tool academic_query."
+                "tool_name": "get_fees",
+                "arguments": {"service_type": "ly hôn"},
+                "thought": "Người dùng muốn tra cứu báo giá của dịch vụ tư vấn ly hôn. Tôi sẽ gọi tool get_fees."
             }
         else:
             return {
@@ -179,9 +179,14 @@ class OpenAIProvider(BaseLLMProvider):
                 })
 
             messages = []
-            if system_prompt:
-                messages.append({"role": "system", "content": system_prompt})
-            messages.append({"role": "user", "content": prompt})
+            if isinstance(prompt, list):
+                if system_prompt and (not prompt or prompt[0].get("role") != "system"):
+                    messages.append({"role": "system", "content": system_prompt})
+                messages.extend(prompt)
+            else:
+                if system_prompt:
+                    messages.append({"role": "system", "content": system_prompt})
+                messages.append({"role": "user", "content": prompt})
 
             response = client.chat.completions.create(
                 model=self.model_name,
@@ -197,7 +202,9 @@ class OpenAIProvider(BaseLLMProvider):
                 return {
                     "type": "tool_call",
                     "tool_name": call.function.name,
+                    "tool_call_id": call.id,
                     "arguments": args,
+                    "raw_message": msg,
                     "thought": f"OpenAI quyết định gọi công cụ '{call.function.name}' với tham số: {json.dumps(args, ensure_ascii=False)}"
                 }
             else:

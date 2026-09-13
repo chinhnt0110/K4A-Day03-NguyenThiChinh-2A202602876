@@ -1,0 +1,37 @@
+[
+  {
+    "id": "TC01",
+    "type": "direct_query",
+    "question": "Chào bạn, điều kiện để được đơn phương ly hôn theo quy định của Luật Hôn nhân và Gia đình hiện nay là gì?",
+    "expected_behavior": "Chatbot trả lời trực tiếp từ kiến thức pháp luật và System Prompt, không cần gọi bất kỳ Tool nào.",
+    "complexity": "Low"
+  },
+  {
+    "id": "TC02",
+    "type": "single_tool_query",
+    "question": "Tôi muốn hỏi về bảng giá dịch vụ tư vấn ly hôn của văn phòng.",
+    "expected_behavior": "Agent nhận diện nhu cầu tra cứu giá, tự động phát sinh Tool Call 'get_fees' với service_type='ly hôn'.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC03",
+    "type": "appointment_booking",
+    "question": "Tôi là khách hàng KH001, tôi muốn đặt lịch hẹn tư vấn với luật sư Quách Văn Thơm vào lúc 14:00 ngày 15/09/2026.",
+    "expected_behavior": "Agent tự động phát sinh Tool Call 'schedule_appointment' với đúng thời gian, mã khách hàng và tên luật sư.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC04",
+    "type": "multi_step_reasoning",
+    "question": "Tôi là khách hàng KH001, hãy kiểm tra xem luật sư phụ trách của tôi là ai, sau đó đặt cho tôi một lịch hẹn tư vấn với luật sư đó vào sáng ngày 20/09/2026 nhé.",
+    "expected_behavior": "Agent thực hiện chuỗi suy luận ReAct: Gọi 'find_lawyer' tra cứu luật sư phụ trách của KH001 trước, sau đó tiến hành gọi 'schedule_appointment' để đặt lịch hẹn.",
+    "complexity": "High"
+  },
+  {
+    "id": "TC05",
+    "type": "edge_case_handling",
+    "question": "Tôi là khách hàng KH9999, hãy kiểm tra xem luật sư phụ trách của tôi là ai.",
+    "expected_behavior": "Agent nhận kết quả NOT_FOUND từ Tool do mã khách hàng không tồn tại, đưa ra phản hồi lịch sự, chính xác và không bịa đặt dữ liệu.",
+    "complexity": "Medium"
+  }
+]
